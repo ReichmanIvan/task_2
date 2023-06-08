@@ -4,12 +4,12 @@ struct Node
 {
 	int data;
 
-	//point to the next element
+	//Указатель на следующий элемент
 	Node* next_element;
 
-	//constructor
+	//Конструктор узла
 	Node(int data, Node* next = nullptr);
 
-	//overload operator =
+	//Перегрузка оператора =
 	void operator=(const int other_data);
 };
