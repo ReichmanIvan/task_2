@@ -1,5 +1,6 @@
 #include "..//list/List.h"
 
+//Точка входа в программу
 int main()
 {
 	List first_list;
