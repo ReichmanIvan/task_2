@@ -40,7 +40,8 @@ class List
 
 
 	private:
-
+		
+		//Указатель на первый элемент
 		Node* first_element;
 
 		int size;
