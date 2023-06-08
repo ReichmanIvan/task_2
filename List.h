@@ -8,34 +8,34 @@ class List
 {
 	public:
 		
-		//constructor
+		//Конструктор списка
 		List();
 
-		//destructor
+		//Деконструктор списка
 		~List();
 
-		//copy constructor
+		//Конструктор копирования
 		List(const List& second);
 
-		//pushing element in front of list
+		//Функция добавления элемента в начало списка
 		void push_front(int data);
 
-		//pushing element in back of list
+		//Функция добавления элемента в конец списка
 		void push_back(int data);
 
-		//delete element in front of list
+		//Удаление элемента
 		void del_front();
 
-		//clear list
+		//Очищение списка
 		void clear_list();
 
-		//getting size of list
+		//Функция, возвращающая размер списка
 		int get_size();
 
-		//convert list into string
+		//Функция, конвертирующая список в строку
 		std::string to_string();
 
-		// overloading the operator ==
+		//Перегрузка оператора =
 		List& operator=(const List& second);
 
 
