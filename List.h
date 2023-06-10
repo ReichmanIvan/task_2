@@ -6,43 +6,82 @@
 
 class List
 {
-	public:
-		
-		//Конструктор списка
-		List();
+public:
 
-		//Деконструктор списка
-		~List();
+	/**
+	* \brief Функция, инициализирующая список
+	*/
+	List();
 
-		//Конструктор копирования
-		List(const List& second);
+	/**
+	* \brief Функция, удаляющая список
+	*/
+	~List();
 
-		//Функция добавления элемента в начало списка
-		void push_front(int data);
+	/**
+	* \brief Функция, копирующая список
+	* \param second_list Список, который будет скопирован
+	*/
+	List(const List& second_list);
 
-		//Функция добавления элемента в конец списка
-		void push_back(int data);
+	/**
+	* \brief Функция, перемещающая список
+	* \param second_list Список, который будет перемещен
+	*/
+	List(List&& second_list) noexcept;
 
-		//Функция удаление элемента
-		void del_front();
+	/**
+	* \brief Функция, добавляющая элемент в начало списка
+	* \param data Данные, которые будут добавлены
+	*/
+	void push_front(int data);
 
-		//Функция очищения списка
-		void clear_list();
+	/**
+	* \brief Функция, добавляющая элемент в конец списка
+	* \param data Данные, которые будут добавлены
+	*/
+	void push_back(int data);
 
-		//Функция, возвращающая размер списка
-		int get_size();
+	/**
+	* \brief Функция, удаляющая узел в начале списка
+	*/
+	void del_front();
 
-		//Функция, конвертирующая список в строку
-		std::string to_string();
+	/**
+	* \brief Функция, удаляющая все узлы списка
+	*/
+	void clear_list();
 
-		//Перегрузка оператора =
-		List& operator=(const List& second);
+	/**
+	* \brief Функция, возвращающая размер списка
+	* \return Размер списка
+	*/
+	int get_size();
+
+	/**
+	* \brief Функция, превращающая список в строку
+	* \return Строка, состоящая из узлов
+	*/
+	std::string to_string();
+
+	/**
+	* \brief Функция, перегружающая оператор =
+	* \param second_list Список, который будет скопирован
+	* \return Скопированный список
+	*/
+	List& operator=(const List& second_list);
+
+	/**
+	* \brief Функция, перегружающая оператор =
+	* \param second_list Список, который будет перемещен
+	* \return Перемещенный список
+	*/
+	List& operator=(List&& second_list) noexcept;
 
 
-	private:
-		
-		//Указатель на первый элемент
-		Node* first_element;
+private:
 
-		int size;
+	Node* first_element;
+
+	size_t size;
 };
