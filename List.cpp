@@ -21,6 +21,11 @@ List::List(const List& second_list)
 	}
 }
 
+List::List(List&& second_list) noexcept
+{
+	std::exchange(this->first_element, second_list.first_element);
+}
+
 void List::push_front(int data)
 {
 	first_element = new Node(data, first_element);
@@ -59,7 +64,7 @@ void List::del_front()
 
 void List::clear_list()
 {
-	while (size)
+	while (size > 0)
 	{
 		del_front();
 	}
@@ -94,6 +99,12 @@ List& List::operator=(const List& second_list)
 			this->push_back(node->data);
 		}
 	}
+	return *this;
+}
+
+List& List::operator=(List&& second_list) noexcept
+{
+	std::exchange(this->first_element, second_list.first_element);
 	return *this;
 }
 
