@@ -83,7 +83,7 @@ namespace ListTests
 
 		}
 
-		TEST_METHOD(comparison_operator_tets_valid_data_success)
+		TEST_METHOD(comparison_operator_test_valid_data_success)
 
 		{
 
