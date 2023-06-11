@@ -1,6 +1,9 @@
 #include "..//list/List.h"
 
-//Точка входа в программу
+/**
+* \brief Точка входа в программу
+* \return 0 В случае успеха
+*/
 int main()
 {
 	List first_list;
