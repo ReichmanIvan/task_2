@@ -77,7 +77,14 @@ public:
 	* \return Перемещенный список
 	*/
 	List& operator=(List&& second_list) noexcept;
-
+	
+	/**
+	* \brief Функция, перегружающая оператор =
+	* \param second_list Список, который будет сравнен
+	* \return true Если два списка одинаковые
+	* \return false В противном случае
+	*/
+	bool operator==(List& second_list);
 
 private:
 
