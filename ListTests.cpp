@@ -17,15 +17,15 @@ namespace ListTests
 
 			List default_list;
 
+			std::string expected_string = "1 2 ";
+
+			//Act
+
 			default_list.push_back(1);
 
 			default_list.push_back(2);
 
 			std::string actual = default_list.to_string();
-
-			//Act
-
-			std::string expected_string = "1 2 ";
 
 			//Assert
 
@@ -41,15 +41,15 @@ namespace ListTests
 
 			List default_list;
 
+			std::string expected_string = "2 1 ";
+
+			//Act
+
 			default_list.push_back(1);
 
 			default_list.push_front(2);
 
 			std::string actual = default_list.to_string();
-
-			//Act
-
-			std::string expected_string = "2 1 ";
 
 			//Assert
 
@@ -65,6 +65,10 @@ namespace ListTests
 
 			List default_list;
 
+			int expected = 3;
+
+			//Act
+
 			default_list.push_back(1);
 
 			default_list.push_back(2);
@@ -73,17 +77,13 @@ namespace ListTests
 
 			int actual = default_list.get_size();
 
-			//Act
-
-			int expected = 3;
-
 			//Assert
 
 			Assert::AreEqual(expected, actual);
 
 		}
 
-		TEST_METHOD(comparison_operator_test_valid_data_success)
+		TEST_METHOD(comparison_operator_tets_valid_data_success)
 
 		{
 
@@ -91,13 +91,13 @@ namespace ListTests
 
 			List first_list;
 
-			first_list.push_back(1);
-
-			first_list.push_back(2);
+			List second_list;
 
 			//Act
 
-			List second_list;
+			first_list.push_back(1);
+
+			first_list.push_back(2);
 
 			second_list.push_back(1);
 
@@ -115,14 +115,16 @@ namespace ListTests
 
 			List first_list;
 
+			List copied_list;
+
+			//Act
+
 			first_list.push_back(1);
 
 			first_list.push_back(2);
 
-			//Act
-			List copied_list;
-
 			//Arrange
+
 			Assert::IsFalse(copied_list == first_list);
 		}
 	};
