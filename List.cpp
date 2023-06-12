@@ -108,3 +108,7 @@ List& List::operator=(List&& second_list) noexcept
 	return *this;
 }
 
+bool List::operator==(List& second_list)
+{
+	return(this->to_string() == second_list.to_string());
+}
