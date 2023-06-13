@@ -110,12 +110,36 @@ namespace ListTests
 		}
 
 		TEST_METHOD(copy_operator_test_valid_data_succeess)
+			
 		{
 			//Arrange
 
 			List first_list;
+			
+			List copiedList(List1);
 
-			List copied_list;
+			//Act
+			
+			first_list.push_back(1);
+
+			first_list.push_back(2);
+			
+			copied_list.pushBack(3);
+			
+			//Assert
+			
+			Assert::IsFalse(copied_list == first_list);
+		}
+		
+		TEST_METHOD(copy_operator_test)
+
+		{
+
+			//Arrange
+
+			List first_list;
+			
+			List second_list;
 
 			//Act
 
@@ -123,32 +147,13 @@ namespace ListTests
 
 			first_list.push_back(2);
 
-			//Assert
-
-			Assert::IsFalse(copied_list == first_list);
-		}
-		
-		TEST_METHOD(copy_constructor_test)
-
-		{
-
-			//Arrange
-
-			List List1;
+			second_list = first_list;
 			
-			List List2;
-
-			//Act
-
-			List1.pushBack(4);
-
-			List1.pushBack(5);
-
-			List2 = List1;
-
+			second_list.push_back(3);
+			
 			//Assert
 
-			Assert::IsTrue(List1 == List2);
+			Assert::IsTrue(first_list != second_list);
 
 		}
 		
@@ -158,26 +163,26 @@ namespace ListTests
 
 			//Arrange
 
-			List List1;
-			List List2;
-			List List3;
+			List first_list;
+			List second_list;
+			List third_list;
 			
 			//Act
 
-			List1.pushBack(1);
-			List1.pushBack(1);
+			first_list.push_back(1);
+			first_list.pushBack(1);
 
-			List2.pushBack(2);
-			List2.pushBack(2);
+			second_list.push_back(2);
+			second_list.push_back(2);
 
-			List3.pushBack(2);
-			List3.pushBack(2);
+			third_list.push_back(2);
+			third_list.push_back(2);
 
-			List2 = std::move(List1);
+			second_list = std::move(first_list);
 
 			//Assert
 
-			Assert::IsTrue(List3 == List1);
+			Assert::IsTrue(third_list == first_list);
 
 		}
 	};
