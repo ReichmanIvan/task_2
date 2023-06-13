@@ -23,7 +23,7 @@ List::List(const List& second_list)
 
 List::List(List&& second_list) noexcept
 {
-	std::exchange(this->first_element, second_list.first_element);
+	std::swap(this->first_element, second_list.first_element);
 }
 
 void List::push_front(int data)
@@ -104,7 +104,7 @@ List& List::operator=(const List& second_list)
 
 List& List::operator=(List&& second_list) noexcept
 {
-	std::exchange(this->first_element, second_list.first_element);
+	std::swap(this->first_element, second_list.first_element);
 	return *this;
 }
 
