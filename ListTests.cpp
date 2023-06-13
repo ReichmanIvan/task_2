@@ -123,9 +123,62 @@ namespace ListTests
 
 			first_list.push_back(2);
 
-			//Arrange
+			//Assert
 
 			Assert::IsFalse(copied_list == first_list);
+		}
+		
+		TEST_METHOD(copy_constructor_test)
+
+		{
+
+			//Arrange
+
+			List List1;
+			
+			List List2;
+
+			//Act
+
+			List1.pushBack(4);
+
+			List1.pushBack(5);
+
+			List2 = List1;
+
+			//Assert
+
+			Assert::IsTrue(List1 == List2);
+
+		}
+		
+		TEST_METHOD(move_constructor_test)
+
+		{
+
+			//Arrange
+
+			List List1;
+			List List2;
+			List List3;
+			
+			//Act
+
+			List1.pushBack(1);
+			List1.pushBack(1);
+
+			List2.pushBack(2);
+			List2.pushBack(2);
+
+			List3.pushBack(2);
+			List3.pushBack(2);
+
+			List2 = std::move(List1);
+
+			//Assert
+
+			Assert::IsTrue(List3 == List1);
+
 		}
 	};
 }
